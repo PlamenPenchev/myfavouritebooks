@@ -25,9 +25,9 @@ group :development, :test do
 end 
 group :production do
   # make sure the following gems are in your production group:
-  gem 'pg'              # use PostgreSQL in production (Heroku)
+  #gem 'pg'              # use PostgreSQL in production (Heroku)
   # !!!!! If you experience any problems with the PostgreSQL version while trying to deploy to Heroku change the above line with
-  # gem 'pg', '~> 0.15'
+  gem 'pg', '~> 0.15'
 
   gem 'rails_12factor'  # Heroku-specific production settings
 end
