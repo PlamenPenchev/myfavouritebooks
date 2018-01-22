@@ -18,7 +18,14 @@ more_books = [
   {:title => 'It', :genre => 'Horror',
     :publish_date => '13-Jan-1986', :isbn => 'jju12aa'},
   {:title => 'Beautiful Distaster', :genre => 'Romance',
-    :publish_date => '11-Feb-1981', :isbn => 'jra44aa'}
+    :publish_date => '11-Feb-1981', :isbn => 'jra44aa'},
+  {:title => 'The Martian', :genre => 'Science fiction',
+    :publish_date => '11-Feb-2014', :isbn => 'jrkkkaa'},
+  {:title => 'To Kill a Mockingbird', :genre => 'Drama',
+    :publish_date => '11-Jul-1960', :isbn => 'jra4411'},
+  {:title => 'Carrie', :genre => 'Horror',
+    :publish_date => '5-Apr-1974', :isbn => 'iiia44aa'}
+    
 ]
 
 more_books.each do |book|

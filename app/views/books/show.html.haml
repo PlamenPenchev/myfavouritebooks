@@ -16,6 +16,7 @@
 
 -# modify last 2 lines of app/views/movies/show.html.haml to:
 = link_to 'Edit info', edit_book_path(@book)
+= link_to 'Find Books With Same Author', search_similar_books_url(id: @book.id)
 = link_to 'Back to book list', books_path
 
 -# This Delete link will not really be a link, but a form:
