@@ -1,6 +1,29 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    
+    sort = params[:sort]
+
+    case sort
+    when 'title'
+      ordering,@title_header = {:title => :asc}, 'hilite'
+    when 'publish_date'      
+      ordering,@date_header = {:publish_date => :asc}, 'hilite'
+    end
+    
+    # edit the index method of the movies_controller.rb
+    @all_genres = Book.all_genres 
+    @selected_genres = params[:genres] || session[:genres] || {}
+    if @selected_genres == {}   
+      @selected_genres = Hash[@all_genres.map {|genre| [genre, genre]}]
+    end
+    if params[:sort] != session[:sort] or params[:genres] != session[:genres]
+      session[:sort] = sort
+      session[:genres] = @selected_genres
+      redirect_to :sort => sort, :genres => @selected_genres and return
+    end
+
+    @books = Book.where(genre: @selected_genres.keys).order(ordering)
+    #@books = Book.order(ordering)
   end
   
   def show
