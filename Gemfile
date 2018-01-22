@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,6 +14,23 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# making your Gemfile safe for Heroku
+# !!!!! Make sure you set the version of ruby installed used by your application
+# use $ ruby -v to get the installed ruby version
+ruby '2.3.0'   # just in case - tell Heroku which Ruby version we need
+group :development, :test do
+  # make sure sqlite3 gem ONLY occurs inside development & test groups
+  # !!!!! make sure that you delete the sqlite3 gem from the general gems outside the development and test groups
+  gem 'sqlite3' # use SQLite only in development and testing
+end 
+group :production do
+  # make sure the following gems are in your production group:
+  gem 'pg'              # use PostgreSQL in production (Heroku)
+  # !!!!! If you experience any problems with the PostgreSQL version while trying to deploy to Heroku change the above line with
+  # gem 'pg', '~> 0.15'
+
+  gem 'rails_12factor'  # Heroku-specific production settings
+end
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

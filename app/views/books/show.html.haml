@@ -1,0 +1,22 @@
+-# in app/views/books/show.html.haml
+%h2 Details about #{@book.title}
+
+%ul#details
+  %li
+    Genre:
+    = @book.genre
+  %li
+    Published on:
+    = @book.publish_date.strftime("%B %d, %Y")
+
+%h3 Description:
+
+%p#description= @book.description
+
+
+-# modify last 2 lines of app/views/movies/show.html.haml to:
+= link_to 'Edit info', edit_book_path(@book)
+= link_to 'Back to book list', books_path
+
+-# This Delete link will not really be a link, but a form:
+= link_to 'Delete', book_path(@book), :method => :delete
