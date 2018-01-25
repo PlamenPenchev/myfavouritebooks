@@ -40,6 +40,7 @@ h1 {
   font-style: italic;
   display: block;
   width: 100%;
+  background-color: orange;
   border-bottom: 1px solid DarkSlateGrey;
 }
 h1.title {
